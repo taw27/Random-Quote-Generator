@@ -51,6 +51,17 @@ const quotes = [
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
+function getRandomQuote(quotes){
+  let randomIndex = 0;
+  
+  randomIndex = getRandomNumberWithinRange(0, ( quotes.length - 1 ));
+
+  return quotes([randomIndex]);
+}
+
+function getRandomNumberWithinRange (lowerLimnit, upperLimit) { 
+  return Math.floor(((max - min) * max) + min + 1);
+} 
 
 
 
