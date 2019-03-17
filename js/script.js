@@ -74,8 +74,15 @@ function getRandomNumberWithinRange (lowerLimit, upperLimit) {
   from  https://stackoverflow.com/questions/18820733/getting-a-random-background-color-in-javascript
  */
 function getRandomColour(){
-  const randomhex = Math.floor(Math.random() * 0xFFFFFF);
+  const randomhex = getRandomNumberWithinRange(0, 0xFFFFFF);
+
   return `#${("000000" + randomhex.toString(16)).substr(-6)}`;
+}
+
+function changeColor(){
+  const randomColor = getRandomColour();
+  document.querySelector('body').style.backgroundColor = randomColor;
+  document.querySelector('#loadQuote').style.backgroundColor = randomColor;
 }
 
 /***
@@ -93,7 +100,7 @@ function getRandomColour(){
 function printQuote(){
   let quoteInfo = getRandomQuote();
   let quoteHtml = '';
-
+ 
   quoteHtml += `<p class="quote fade-in"> ${quoteInfo.quote}</p> <p class="source slide-in"> ${quoteInfo.source}`;
 
   if('citation' in quoteInfo) {
@@ -107,7 +114,7 @@ function printQuote(){
   quoteHtml += `</p>`
 
   document.querySelector('#quote-box').innerHTML = quoteHtml;
-  document.querySelector('body').style.backgroundColor = getRandomColour();  
+  changeColor();
 }
 
 
