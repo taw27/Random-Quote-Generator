@@ -113,6 +113,10 @@ function printQuote(){
     quoteHtml += `<span class="year"> ${quoteInfo.year} </span>`;
   }
 
+  if('tags' in quoteInfo) {
+    quoteHtml += `<span class="tag"> tags: ${quoteInfo.tags.join(', ')} </span>`;
+  }
+
   quoteHtml += `</p>`
 
   document.querySelector('#quote-box').innerHTML = quoteHtml;

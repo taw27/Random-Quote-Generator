@@ -120,6 +120,16 @@ body {
   animation: slide 3s forwards;
 }
 
+.tag {
+  font-size: 0.8rem;
+  line-height: 1.1;
+  display: block;
+  font-style: normal;
+  text-align: right;
+  position: relative;
+  margin-top: 4px;
+}
+
 @-webkit-keyframes slide {
   100% { 
     left: 10%;
