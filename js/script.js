@@ -1,21 +1,11 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
+/*
+ Starts the interbal for cycling the quote and stores global variable for inerval id
+ to make it easy to restart the quote interval from anywhere 
+*/
 let quoteChangeInterval = setInterval(printQuote, 30000);
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
+
 /* 
-  Array of quotes objects 
+  Array of quotes objects
   quotes from https://www.goodreads.com/quotes and wikiquote.oprg
 */ 
 
@@ -51,11 +41,9 @@ const quotes = [
 
 console.log(quotes);
 
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
-***/
+/*
+  returns a random quote object from the quotes array
+*/
 function getRandomQuote(){
   let randomIndex = 0;
   
@@ -64,6 +52,9 @@ function getRandomQuote(){
   return quotes[randomIndex];
 }
 
+/*
+  takes in the upper limit and lower limit and returns a random integer within the range
+*/
 function getRandomNumberWithinRange (lowerLimit, upperLimit) {
   upperLimit = Math.floor(upperLimit);
   lowerLimit - Math.ceil(lowerLimit); 
@@ -71,6 +62,7 @@ function getRandomNumberWithinRange (lowerLimit, upperLimit) {
 } 
 
 /*
+  returns a random color hex as a string
   from  https://stackoverflow.com/questions/18820733/getting-a-random-background-color-in-javascript
  */
 function getRandomColour(){
@@ -79,27 +71,24 @@ function getRandomColour(){
   return `#${("000000" + randomhex.toString(16)).substr(-6)}`;
 }
 
+/*
+  sets the backgrounf color of the webpage to a random color
+ */
 function changeColor(){
   const randomColor = getRandomColour();
   document.querySelector('body').style.backgroundColor = randomColor;
   document.querySelector('#loadQuote').style.backgroundColor = randomColor;
 }
 
-/***
-  Create the `printQuote` function to: 
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND 
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
+/*
+  displays a random quote and the source, along with  citation, year, 
+  and tag if they exist. Also changes the background color, adds 
+  associated classe  for transitions/animations and resets the 
+  qoute cycling interval
+*/
 function printQuote(){
   clearInterval(quoteChangeInterval);
-
+  
   let quoteInfo = getRandomQuote();
   let quoteHtml = '';
  
@@ -127,12 +116,9 @@ function printQuote(){
 
 
 
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
+/*
+  adds listener to the loadQuote button which trigger the printQuote function on click
+*/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
