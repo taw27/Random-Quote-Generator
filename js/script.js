@@ -14,8 +14,11 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+/* 
+  Array of quotes objects 
+  quotes from https://www.goodreads.com/quotes and wikiquote.oprg
+*/ 
 
-// quotres from https://www.goodreads.com/quotes
 const quotes = [
   {
     quote: "Don't cry because it's over, smile because it happened.”",
@@ -29,7 +32,9 @@ const quotes = [
   },
   {
     quote: "If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.",
-    source: "J.K. Rowling, Harry Potter and the Goblet of Fire",
+    source: "J.K. Rowling",
+    citation: "Harry Potter and the Goblet of Fire",
+    year: "November 18, 2005",
     tags: []
   },
   {
@@ -39,32 +44,32 @@ const quotes = [
   },
   {
     quote: "I am so clever that sometimes I don't understand a single word of what I am saying.",
-    source: "Oscar Wilde, The Happy Prince and Other Stories",
+    source: "Oscar Wilde",
+    citation: "The Happy Prince and Other Stories",
     tags: [ "intelligence", "self-deprecation"]
   }
 ];
 
-
+console.log(quotes);
 
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
-function getRandomQuote(quotes){
+function getRandomQuote(){
   let randomIndex = 0;
   
   randomIndex = getRandomNumberWithinRange(0, ( quotes.length - 1 ));
 
-  return quotes([randomIndex]);
+  return quotes[randomIndex];
 }
 
-function getRandomNumberWithinRange (lowerLimnit, upperLimit) { 
-  return Math.floor(((max - min) * max) + min + 1);
+function getRandomNumberWithinRange (lowerLimit, upperLimit) {
+  upperLimit = Math.floor(upperLimit);
+  lowerLimit - Math.ceil(lowerLimit); 
+  return Math.floor(((upperLimit - lowerLimit) * Math.random( )) + lowerLimit + 1);
 } 
-
-
-
 
 /***
   Create the `printQuote` function to: 
@@ -78,7 +83,24 @@ function getRandomNumberWithinRange (lowerLimnit, upperLimit) {
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+function printQuote(){
+  let quoteInfo = getRandomQuote();
+  let quoteHtml = '';
 
+  quoteHtml += '<p class="quote">' + quoteInfo.quote + '</p> <p class="source">' + quoteInfo.source;
+
+  if('citation' in quoteInfo) {
+    quoteHtml += '<span class="citation">' + quoteInfo.citation + '</span>';
+  }
+
+  if('year' in quoteInfo) {
+    quoteHtml += '<span class="year">' + quoteInfo.year + '</span>';
+  }
+
+  quoteHtml += '</p>'
+
+  document.querySelector('#quote-box').innerHTML = quoteHtml; 
+}
 
 
 
