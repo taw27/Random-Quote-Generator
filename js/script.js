@@ -2,7 +2,7 @@
  Starts the interbal for cycling the quote and stores global variable for inerval id
  to make it easy to restart the quote interval from anywhere 
 */
-let quoteChangeInterval = setInterval(printQuote, 30000);
+let quoteChangeInterval = setInterval(printQuote, 20000);
 
 /* 
   Array of quotes objects
@@ -88,7 +88,7 @@ function changeColor(){
 */
 function printQuote(){
   clearInterval(quoteChangeInterval);
-  
+
   let quoteInfo = getRandomQuote();
   let quoteHtml = '';
  
@@ -111,7 +111,7 @@ function printQuote(){
   document.querySelector('#quote-box').innerHTML = quoteHtml;
   changeColor();
 
-  quoteChangeInterval = setInterval(printQuote, 30000);
+  quoteChangeInterval = setInterval(printQuote, 20000);
 }
 
 
