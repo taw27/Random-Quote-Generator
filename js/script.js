@@ -5,7 +5,7 @@ project 1 - A Random Quote Generator
 
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
-
+let quoteChangeInterval = setInterval(printQuote, 30000);
 /*** 
   Create the array of quote objects and name it `quotes`.
   Add at least five quote objects to the `quotes` array.
@@ -98,6 +98,8 @@ function changeColor(){
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 function printQuote(){
+  clearInterval(quoteChangeInterval);
+
   let quoteInfo = getRandomQuote();
   let quoteHtml = '';
  
@@ -115,6 +117,8 @@ function printQuote(){
 
   document.querySelector('#quote-box').innerHTML = quoteHtml;
   changeColor();
+
+  quoteChangeInterval = setInterval(printQuote, 30000);
 }
 
 
@@ -127,6 +131,5 @@ function printQuote(){
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
