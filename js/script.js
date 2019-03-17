@@ -87,17 +87,17 @@ function printQuote(){
   let quoteInfo = getRandomQuote();
   let quoteHtml = '';
 
-  quoteHtml += '<p class="quote">' + quoteInfo.quote + '</p> <p class="source">' + quoteInfo.source;
+  quoteHtml += `<p class="quote"> ${quoteInfo.quote}</p> <p class="source"> ${quoteInfo.source}`;
 
   if('citation' in quoteInfo) {
-    quoteHtml += '<span class="citation">' + quoteInfo.citation + '</span>';
+    quoteHtml += `<span class="citation"> ${quoteInfo.citation}</span>`;
   }
 
   if('year' in quoteInfo) {
-    quoteHtml += '<span class="year">' + quoteInfo.year + '</span>';
+    quoteHtml += `<span class="year"> ${quoteInfo.year} </span>`;
   }
 
-  quoteHtml += '</p>'
+  quoteHtml += `</p>`
 
   document.querySelector('#quote-box').innerHTML = quoteHtml; 
 }
