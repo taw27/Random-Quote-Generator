@@ -93,6 +93,48 @@ body {
   outline: none;
 }
 
+/* from https://stackoverflow.com/questions/11660710/css-transition-fade-in */
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* from https://stackoverflow.com/questions/16989585/css-3-slide-in-from-left-transition */
+.slide-in {
+  position: absolute;
+  left: -100%;
+  width: 80%;
+  -webkit-animation: slide 3s forwards;
+  animation: slide 3s forwards;
+}
+
+@-webkit-keyframes slide {
+  100% { 
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@keyframes slide {
+
+  100% { 
+    left: 10%;
+    right: 10%; 
+  }
+}
+
 @media (min-width: 420px) {
   .quote {
     font-size: 4rem;
