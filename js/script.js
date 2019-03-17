@@ -35,7 +35,6 @@ const quotes = [
     source: "J.K. Rowling",
     citation: "Harry Potter and the Goblet of Fire",
     year: "November 18, 2005",
-    tags: []
   },
   {
     quote: "If you tell the truth, you don't have to remember anything.",
@@ -71,6 +70,14 @@ function getRandomNumberWithinRange (lowerLimit, upperLimit) {
   return Math.floor(((upperLimit - lowerLimit) * Math.random( )) + lowerLimit + 1);
 } 
 
+/*
+  from  https://stackoverflow.com/questions/18820733/getting-a-random-background-color-in-javascript
+ */
+function getRandomColour(){
+  const randomhex = Math.floor(Math.random() * 0xFFFFFF);
+  return `#${("000000" + randomhex.toString(16)).substr(-6)}`;
+}
+
 /***
   Create the `printQuote` function to: 
    - Call the `getRandomQuote` function and assign it to a variable.
@@ -87,7 +94,7 @@ function printQuote(){
   let quoteInfo = getRandomQuote();
   let quoteHtml = '';
 
-  quoteHtml += `<p class="quote"> ${quoteInfo.quote}</p> <p class="source"> ${quoteInfo.source}`;
+  quoteHtml += `<p class="quote fade-in"> ${quoteInfo.quote}</p> <p class="source slide-in"> ${quoteInfo.source}`;
 
   if('citation' in quoteInfo) {
     quoteHtml += `<span class="citation"> ${quoteInfo.citation}</span>`;
@@ -99,7 +106,8 @@ function printQuote(){
 
   quoteHtml += `</p>`
 
-  document.querySelector('#quote-box').innerHTML = quoteHtml; 
+  document.querySelector('#quote-box').innerHTML = quoteHtml;
+  document.querySelector('body').style.backgroundColor = getRandomColour();  
 }
 
 
