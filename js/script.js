@@ -6,7 +6,7 @@ let quoteChangeInterval = setInterval(printQuote, 20000);
 
 /* 
   Array of quotes objects
-  quotes from https://www.goodreads.com/quotes and wikiquote.oprg
+  quotes from https://www.goodreads.com/quotes and wikiquote.org
 */ 
 
 const quotes = [
