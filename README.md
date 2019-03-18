@@ -13,7 +13,7 @@ A webpage that displays a random quotes from a short list chosen from https://ww
  + _The quotes automatically cycle every 20 seconds_
  + _The quote is displayed with the source, along with the citation, year and tags if they exist_
  
- *_ Disclaimer: This project is only for learning purposes, and the quote information may not be accurate_* 
+ **_ Disclaimer: This project is only for learning purposes, and the quote information may not be accurate_** 
 
 ## Running Instructions
 
