@@ -1,5 +1,5 @@
 /*
- Starts the interbal for cycling the quote and stores global variable for inerval id
+ Starts the interval for cycling the quote and stores global variable for inerval id
  to make it easy to restart the quote interval from anywhere 
 */
 let quoteChangeInterval = setInterval(printQuote, 20000);
