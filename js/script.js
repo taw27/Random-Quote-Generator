@@ -29,7 +29,7 @@ const quotes = [
   {
     quote: "If you tell the truth, you don't have to remember anything.",
     source: "Mark Twain",
-    tag: [ "lies", "lying", "memory", "truth"]
+    tags: [ "lies", "lying", "memory", "truth"]
   },
   {
     quote: "I am so clever that sometimes I don't understand a single word of what I am saying.",
@@ -58,7 +58,7 @@ function getRandomQuote(){
 function getRandomNumberWithinRange (lowerLimit, upperLimit) {
   upperLimit = Math.floor(upperLimit);
   lowerLimit - Math.ceil(lowerLimit); 
-  return Math.floor(((upperLimit - lowerLimit) * Math.random( )) + lowerLimit + 1);
+  return Math.floor(((upperLimit - lowerLimit + 1) * Math.random( )) + lowerLimit);
 } 
 
 /*
